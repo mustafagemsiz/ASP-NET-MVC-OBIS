@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbMvcOkulModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TBL_DERS">
+    <Key>
+      <PropertyRef Name="DERSID" />
+    </Key>
+    <Property Name="DERSID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DERSAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_NOT" Relationship="Self.FK_TBL_NOT_TBL_DERS" FromRole="TBL_DERS" ToRole="TBL_NOT" />
+  </EntityType>
+  <EntityType Name="TBL_KULUP">
+    <Key>
+      <PropertyRef Name="KULUPID" />
+    </Key>
+    <Property Name="KULUPID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KLPAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="KLPKONTENJAN" Type="Int16" />
+    <NavigationProperty Name="TBL_OGRENCI" Relationship="Self.FK_TBL_OGRENCI_TBL_KULUP" FromRole="TBL_KULUP" ToRole="TBL_OGRENCI" />
+  </EntityType>
+  <EntityType Name="TBL_NOT">
+    <Key>
+      <PropertyRef Name="NOTID" />
+    </Key>
+    <Property Name="NOTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DERSID" Type="Byte" />
+    <Property Name="OGRID" Type="Int32" />
+    <Property Name="SINAV1" Type="Byte" />
+    <Property Name="SINAV2" Type="Byte" />
+    <Property Name="SINAV3" Type="Byte" />
+    <Property Name="PROJE" Type="Byte" />
+    <Property Name="ORTALAMA" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DURUM" Type="Boolean" />
+    <NavigationProperty Name="TBL_DERS" Relationship="Self.FK_TBL_NOT_TBL_DERS" FromRole="TBL_NOT" ToRole="TBL_DERS" />
+    <NavigationProperty Name="TBL_OGRENCI" Relationship="Self.FK_TBL_NOT_TBL_OGRENCI" FromRole="TBL_NOT" ToRole="TBL_OGRENCI" />
+  </EntityType>
+  <EntityType Name="TBL_OGRENCI">
+    <Key>
+      <PropertyRef Name="OGRENCIID" />
+    </Key>
+    <Property Name="OGRENCIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OGRAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="OGRSOYAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="OGRFOTOGRAF" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="OGRCINSIYET" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="OGRKULUP" Type="Byte" />
+    <NavigationProperty Name="TBL_KULUP" Relationship="Self.FK_TBL_OGRENCI_TBL_KULUP" FromRole="TBL_OGRENCI" ToRole="TBL_KULUP" />
+    <NavigationProperty Name="TBL_NOT" Relationship="Self.FK_TBL_NOT_TBL_OGRENCI" FromRole="TBL_OGRENCI" ToRole="TBL_NOT" />
+  </EntityType>
+  <Association Name="FK_TBL_NOT_TBL_DERS">
+    <End Role="TBL_DERS" Type="Self.TBL_DERS" Multiplicity="0..1" />
+    <End Role="TBL_NOT" Type="Self.TBL_NOT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_DERS">
+        <PropertyRef Name="DERSID" />
+      </Principal>
+      <Dependent Role="TBL_NOT">
+        <PropertyRef Name="DERSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_OGRENCI_TBL_KULUP">
+    <End Role="TBL_KULUP" Type="Self.TBL_KULUP" Multiplicity="0..1" />
+    <End Role="TBL_OGRENCI" Type="Self.TBL_OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KULUP">
+        <PropertyRef Name="KULUPID" />
+      </Principal>
+      <Dependent Role="TBL_OGRENCI">
+        <PropertyRef Name="OGRKULUP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_NOT_TBL_OGRENCI">
+    <End Role="TBL_OGRENCI" Type="Self.TBL_OGRENCI" Multiplicity="0..1" />
+    <End Role="TBL_NOT" Type="Self.TBL_NOT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_OGRENCI">
+        <PropertyRef Name="OGRENCIID" />
+      </Principal>
+      <Dependent Role="TBL_NOT">
+        <PropertyRef Name="OGRID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbMvcOkulEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TBL_DERS" EntityType="Self.TBL_DERS" />
+    <EntitySet Name="TBL_KULUP" EntityType="Self.TBL_KULUP" />
+    <EntitySet Name="TBL_NOT" EntityType="Self.TBL_NOT" />
+    <EntitySet Name="TBL_OGRENCI" EntityType="Self.TBL_OGRENCI" />
+    <AssociationSet Name="FK_TBL_NOT_TBL_DERS" Association="Self.FK_TBL_NOT_TBL_DERS">
+      <End Role="TBL_DERS" EntitySet="TBL_DERS" />
+      <End Role="TBL_NOT" EntitySet="TBL_NOT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_OGRENCI_TBL_KULUP" Association="Self.FK_TBL_OGRENCI_TBL_KULUP">
+      <End Role="TBL_KULUP" EntitySet="TBL_KULUP" />
+      <End Role="TBL_OGRENCI" EntitySet="TBL_OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_NOT_TBL_OGRENCI" Association="Self.FK_TBL_NOT_TBL_OGRENCI">
+      <End Role="TBL_OGRENCI" EntitySet="TBL_OGRENCI" />
+      <End Role="TBL_NOT" EntitySet="TBL_NOT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

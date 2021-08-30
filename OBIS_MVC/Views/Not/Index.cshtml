@@ -1,0 +1,53 @@
+﻿@using OBIS_MVC.Models.Entity_Framework;
+@model List<TBL_NOT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<h2 style="margin-top:15px; text-align:center;">Sınav Not Listesi</h2>
+<hr />
+<a style="margin-bottom:15px;" href="#" class="btn btn-primary">Sınav Not Ekle</a>
+<table class="myList">
+    <thead>
+        <tr style="text-align:center;">
+            <th scope="col">NOT ID</th>
+            <th scope="col">OGRENCI ID</th>
+            <th scope="col">DERS ID</th>
+            <th scope="col">SINAV 1</th>
+            <th scope="col">SINAV 2</th>
+            <th scope="col">SINAV 3</th>
+            <th scope="col">PROJE</th>
+            <th scope="col">ORTALAMA</th>
+            <th scope="col">DURUM</th>
+            <th scope="col">İŞLEMLER</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="text-align:center;">
+                <td>@item.NOTID</td>
+                <td>@item.OGRID</td>
+                <td>@item.DERSID</td>
+                <td>@item.SINAV1</td>
+                <td>@item.SINAV2</td>
+                <td>@item.SINAV3</td>
+                <td>@item.PROJE</td>
+                <td>@item.ORTALAMA</td>
+                <td>@item.DURUM</td>
+                <td>
+                    <a href="#" class="btn btn-warning">Güncelle</a>
+                    <a href="#" class="btn btn-danger">Sil</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
