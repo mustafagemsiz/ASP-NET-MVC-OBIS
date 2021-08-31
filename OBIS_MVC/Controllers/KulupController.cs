@@ -16,5 +16,19 @@ namespace OBIS_MVC.Controllers
             var kulupler = db.TBL_KULUP.ToList();
             return View(kulupler);
         }
+
+        [HttpGet]
+        public ActionResult KulupEkle()
+        {
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult KulupEkle(TBL_KULUP p)
+        {
+            db.TBL_KULUP.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

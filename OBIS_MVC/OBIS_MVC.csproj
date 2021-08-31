@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HesaplaController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\KulupController.cs" />
     <Compile Include="Controllers\NotController.cs" />
@@ -249,9 +250,12 @@
     <Content Include="Views\Kulup\Index.cshtml" />
     <Content Include="Views\Ogrenci\Index.cshtml" />
     <Content Include="Views\Not\Index.cshtml" />
+    <Content Include="Views\Ogrenci\OgrenciEkle.cshtml" />
+    <Content Include="Views\Not\NotEkle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Hesapla\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -16,5 +16,28 @@ namespace OBIS_MVC.Controllers
             var ogrenciler = db.TBL_OGRENCI.ToList();
             return View(ogrenciler);
         }
+
+        [HttpGet]
+        public ActionResult OgrenciEkle()
+        {
+            List<SelectListItem> degerler = (from x in db.TBL_KULUP.ToList()
+                                             select new SelectListItem
+                                             {
+                                                 Text = x.KLPAD,
+                                                 Value = x.KULUPID.ToString()
+                                             }).ToList();
+            ViewBag.dgr = degerler;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult OgrenciEkle(TBL_OGRENCI p)
+        {
+            var klp = db.TBL_KULUP.Where(m => m.KULUPID == p.TBL_KULUP.KULUPID).FirstOrDefault();
+            p.TBL_KULUP = klp;
+            db.TBL_OGRENCI.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

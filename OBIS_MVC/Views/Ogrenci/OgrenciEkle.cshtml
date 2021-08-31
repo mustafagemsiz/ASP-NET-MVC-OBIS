@@ -1,0 +1,33 @@
+﻿@model OBIS_MVC.Models.Entity_Framework.TBL_OGRENCI
+@{
+    ViewBag.Title = "OgrenciEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top:15px; text-align:center;">Öğrenci Ekleme Sayfası</h2>
+<hr />
+<form action="/Ogrenci/OgrenciEkle/" method="post">
+    <div class="modal-body">
+        <label style="font-weight:bold; margin-bottom:5px">Öğrenci Ad</label>
+        <input type="text" placeholder="Öğrenci Ad Giriniz." name="OGRAD" value="" class="form-control" required />
+        <br />
+        <label style="font-weight:bold; margin-bottom:5px">Öğrenci Soyad</label>
+        <input type="text" placeholder="Öğrenci Soyad Giriniz." name="OGRSOYAD" value="" class="form-control" required />
+        <br />
+        <label style="font-weight:bold; margin-bottom:5px">Fotoğraf</label>
+        <input type="text" placeholder="Fotoğraf Bağlantısı Giriniz." name="OGRFOTOGRAF" value="" class="form-control" required />
+        <br />
+        <label style="font-weight:bold; margin-bottom:5px">Cinsiyet</label>
+        <select class="form-control" id="StudentGender" name="OGRCINSIYET">
+            <option>Cinsiyet seçiniz.</option>
+            <option>Erkek</option>
+            <option>Kadın</option>
+        </select>
+        <br />
+        <label style="font-weight:bold; margin-bottom:5px">Kulüp Ad</label>
+        @Html.DropDownListFor(m => m.TBL_KULUP.KULUPID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+        <a href="/Ogrenci/Index/"><button type="button" class="btn btn-danger">Çıkış</button></a>
+    </div>
+</form>

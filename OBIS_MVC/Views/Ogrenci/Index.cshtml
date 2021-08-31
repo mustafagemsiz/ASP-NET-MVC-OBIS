@@ -1,5 +1,5 @@
 ﻿
-@using OBIS_MVC.Models.Entity_Framework;
+@using OBIS_MVC.Models.Entity_Framework
 @model List<TBL_OGRENCI>
 
 @{
@@ -10,7 +10,7 @@
 
 <h2 style="margin-top:15px; text-align:center;">Öğrenci Listesi</h2>
 <hr />
-<a style="margin-bottom:15px;" href="#" class="btn btn-primary">Öğrenci Ekle</a>
+<a href="/Ogrenci/OgrenciEkle/"><button style="margin-bottom:15px;" type="button" class="btn btn-primary">Öğrenci Ekle</button></a>
 <table class="myList">
     <thead>
         <tr style="text-align:center;">
@@ -24,19 +24,17 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr style="text-align:center;">
-            <td>@item.OGRAD @item.OGRSOYAD</td>
-            <td>@item.OGRFOTOGRAF</td>
-            <td>@item.OGRCINSIYET</td>
-            <td>@item.OGRKULUP</td>
-            <td>
-                <a href="#" class="btn btn-warning">Güncelle</a>
-                <a href="#" class="btn btn-danger">Sil</a>
+            <tr style="text-align:center;">
+                <td>@item.OGRAD @item.OGRSOYAD</td>
+                <td>@item.OGRFOTOGRAF</td>
+                <td>@item.OGRCINSIYET</td>
+                <td>@item.OGRKULUP</td>
+                <td>
+                    <a href="#" class="btn btn-warning">Güncelle</a>
+                    <a href="#" class="btn btn-danger">Sil</a>
 
-            </td>
-        </tr>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
-
-

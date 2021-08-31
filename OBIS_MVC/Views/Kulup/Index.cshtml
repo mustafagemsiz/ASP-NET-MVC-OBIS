@@ -10,7 +10,7 @@
 
 <h2 style="margin-top:15px; text-align:center;">Kulüp Listesi</h2>
 <hr />
-<a style="margin-bottom:15px;" href="#" class="btn btn-primary">Kulüp Ekle</a>
+<button style="margin-bottom:15px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Kulüp Ekle</button>
 <table class="myList">
     <thead>
         <tr style="text-align:center;">
@@ -22,16 +22,39 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr style="text-align:center;">
-            <td>@item.KLPAD</td>
-            <td>@item.KLPKONTENJAN</td>
+            <tr style="text-align:center;">
+                <td>@item.KLPAD</td>
+                <td>@item.KLPKONTENJAN</td>
 
-            <td>
-                <a href="#" class="btn btn-warning">Güncelle</a>
-                <a href="#" class="btn btn-danger">Sil</a>
+                <td>
+                    <a href="#" class="btn btn-warning">Güncelle</a>
+                    <a href="#" class="btn btn-danger">Sil</a>
 
-            </td>
-        </tr>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ders Ekleme Paneli</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Çıkış"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/Kulup/KulupEkle/" method="post">
+                    <div class="modal-body">
+                        <label style="font-weight:bold; margin-bottom:5px">Kulup Ad</label>
+                        <input type="text" placeholder="Kulüp Ad Giriniz." name="KLPAD" value="" class="form-control"  required/>
+                        <br />
+                        <button class="btn btn-success">Kaydet</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Çıkış</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->

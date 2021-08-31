@@ -1,0 +1,42 @@
+﻿@model OBIS_MVC.Models.Entity_Framework.TBL_NOT
+@using OBIS_MVC.Models.Entity_Framework
+@{
+    ViewBag.Title = "NotEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="margin-top:15px; text-align:center;">Öğrenci Sınav Not Ekle</h2>
+<hr />
+<form action="/Not/NotEkle/" method="post">
+    <div class="modal-body">
+        <label style="font-weight:bold; margin-bottom:5px">Öğrenci Ad Soyad</label>
+        @Html.DropDownListFor(m => m.TBL_OGRENCI.OGRENCIID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+        <br />
+        <label style="font-weight:bold; margin-bottom:5px">Ders Ad</label>
+        @Html.DropDownListFor(m => m.TBL_DERS.DERSID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+        <br />
+        <label style="font-weight:bold; margin-bottom:5px">Sınav 1</label>
+        <input type="number" name="SINAV1" value="" min="0" max="100" class="form-control" required />
+        <br />
+        <label style="font-weight:bold; margin-bottom:5px">Sınav 2</label>
+        <input type="number" name="SINAV2" value="" min="0" max="100" class="form-control" required />
+        <br />
+        <label style="font-weight:bold; margin-bottom:5px">Sınav 3</label>
+        <input type="number" name="SINAV3" value="" min="0" max="100" class="form-control" required />
+        <br />
+        <label style="font-weight:bold; margin-bottom:5px">Proje</label>
+        <input type="number" name="PROJE" value="" min="0" max="100" class="form-control" required />
+        <br />
+        <label style="font-weight:bold; margin-bottom:5px">Ortalama</label>
+        <input type="number" name="ORTALAMA" value="" min="0" max="100" class="form-control" required @*disabled="disabled"*@ />
+        <br />
+        <label style="font-weight:bold; margin-bottom:5px">Durum</label>
+        <input type="text" name="DURUM" value="True" required class="form-control" />
+        <br />
+
+        <button class="btn btn-success">Kaydet</button>
+        <a href="/Not/Index/"><button type="button" class="btn btn-danger">Çıkış</button></a>
+    </div>
+</form>
+

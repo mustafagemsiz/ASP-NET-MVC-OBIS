@@ -16,5 +16,20 @@ namespace OBIS_MVC.Controllers
             var dersler = db.TBL_DERS.ToList();
             return View(dersler);
         }
+
+        [HttpGet]
+        public ActionResult DersEkle()
+        {
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult DersEkle(TBL_DERS p)
+        {
+            db.TBL_DERS.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 }
