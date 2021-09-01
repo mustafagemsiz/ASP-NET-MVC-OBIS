@@ -38,9 +38,10 @@ namespace OBIS_MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult NotEkle(TBL_NOT p)
+        public ActionResult NotEkle(TBL_NOT p ,int SINAV1 = 0, int SINAV2 = 0, int SINAV3 = 0, int PROJE = 0)
         {
-
+            decimal ortalama = (SINAV1 + SINAV2 + SINAV3 + PROJE) / 4;
+            ViewBag.ort = ortalama;
             var drs = db.TBL_DERS.Where(m => m.DERSID == p.TBL_DERS.DERSID).FirstOrDefault();
             var drs2 = db.TBL_OGRENCI.Where(m => m.OGRENCIID == p.TBL_OGRENCI.OGRENCIID).FirstOrDefault();
             p.TBL_DERS = drs;
@@ -52,8 +53,6 @@ namespace OBIS_MVC.Controllers
 
         public ActionResult NotHesapla(int SINAV1 = 0, int SINAV2 = 0, int SINAV3 = 0, int PROJE = 0)
         {
-            decimal ortalama = (SINAV1 + SINAV2 + SINAV3 + PROJE) / 4;
-            ViewBag.ort = ortalama;
             return View();
         }
     }

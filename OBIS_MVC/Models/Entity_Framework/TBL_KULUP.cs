@@ -23,6 +23,7 @@ namespace OBIS_MVC.Models.Entity_Framework
         public byte KULUPID { get; set; }
         public string KLPAD { get; set; }
         public Nullable<short> KLPKONTENJAN { get; set; }
+        public Nullable<bool> KLPDURUM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_OGRENCI> TBL_OGRENCI { get; set; }

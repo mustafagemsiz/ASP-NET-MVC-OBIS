@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\birha\source\repos\OBIS_MVC\OBIS_MVC\Models\Entity_Framework\Model.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\Models\Entity_Framework\Model.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

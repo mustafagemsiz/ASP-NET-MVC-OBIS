@@ -13,7 +13,7 @@ namespace OBIS_MVC.Controllers
         // GET: Ogrenci
         public ActionResult Index()
         {
-            var ogrenciler = db.TBL_OGRENCI.ToList();
+            var ogrenciler = db.TBL_OGRENCI.Where(x=>x.OGRDURUM==true).ToList();
             return View(ogrenciler);
         }
 
@@ -35,7 +35,16 @@ namespace OBIS_MVC.Controllers
         {
             var klp = db.TBL_KULUP.Where(m => m.KULUPID == p.TBL_KULUP.KULUPID).FirstOrDefault();
             p.TBL_KULUP = klp;
-            db.TBL_OGRENCI.Add(p);
+            p.OGRDURUM = true;
+            db.TBL_OGRENCI.Add(p);           
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult OgrenciSil(int id)
+        {
+            var deger = db.TBL_OGRENCI.Find(id);
+            deger.OGRDURUM = false;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

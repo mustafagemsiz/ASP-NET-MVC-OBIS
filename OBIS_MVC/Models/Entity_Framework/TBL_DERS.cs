@@ -22,6 +22,7 @@ namespace OBIS_MVC.Models.Entity_Framework
     
         public byte DERSID { get; set; }
         public string DERSAD { get; set; }
+        public Nullable<bool> DERSDURUM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_NOT> TBL_NOT { get; set; }

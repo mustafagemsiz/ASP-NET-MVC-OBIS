@@ -153,7 +153,6 @@ C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\bin\System.Web.WebPage
 C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\bin\Newtonsoft.Json.xml
 C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\bin\Antlr3.Runtime.pdb
 C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\obj\Debug\OBIS_MVC.csprojAssemblyReference.cache
 C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\obj\Debug\OBIS_MVC.csproj.CoreCompileInputs.cache
 C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\obj\Debug\OBIS_MVC.csproj.CopyComplete
 C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\obj\Debug\OBIS_MVC.dll

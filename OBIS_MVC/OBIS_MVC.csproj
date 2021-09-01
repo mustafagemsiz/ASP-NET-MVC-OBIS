@@ -128,7 +128,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HesaplaController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\KulupController.cs" />
     <Compile Include="Controllers\NotController.cs" />

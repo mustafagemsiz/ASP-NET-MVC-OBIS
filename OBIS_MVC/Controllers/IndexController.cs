@@ -13,7 +13,7 @@ namespace OBIS_MVC.Controllers
         DbMvcOkulEntities db = new DbMvcOkulEntities();
         public ActionResult Index()
         {
-            var dersler = db.TBL_DERS.ToList();
+            var dersler = db.TBL_DERS.Where(x=>x.DERSDURUM==true).ToList();
             return View(dersler);
         }
 
@@ -27,9 +27,17 @@ namespace OBIS_MVC.Controllers
         public ActionResult DersEkle(TBL_DERS p)
         {
             db.TBL_DERS.Add(p);
+            p.DERSDURUM = true;
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
 
+        public ActionResult DersSil(int id)
+        {
+            var deger = db.TBL_DERS.Find(id);
+            deger.DERSDURUM = false;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

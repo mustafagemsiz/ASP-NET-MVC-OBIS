@@ -6,6 +6,7 @@
     </Key>
     <Property Name="DERSID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DERSAD" Type="varchar" MaxLength="30" />
+    <Property Name="DERSDURUM" Type="bit" />
   </EntityType>
   <EntityType Name="TBL_KULUP">
     <Key>
@@ -14,6 +15,7 @@
     <Property Name="KULUPID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="KLPAD" Type="varchar" MaxLength="30" />
     <Property Name="KLPKONTENJAN" Type="smallint" />
+    <Property Name="KLPDURUM" Type="bit" />
   </EntityType>
   <EntityType Name="TBL_NOT">
     <Key>
@@ -39,6 +41,7 @@
     <Property Name="OGRFOTOGRAF" Type="varchar" MaxLength="200" />
     <Property Name="OGRCINSIYET" Type="varchar" MaxLength="5" />
     <Property Name="OGRKULUP" Type="tinyint" />
+    <Property Name="OGRDURUM" Type="bit" />
   </EntityType>
   <Association Name="FK_TBL_NOT_TBL_DERS">
     <End Role="TBL_DERS" Type="Self.TBL_DERS" Multiplicity="0..1" />

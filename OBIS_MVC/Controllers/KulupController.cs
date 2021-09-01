@@ -13,7 +13,7 @@ namespace OBIS_MVC.Controllers
         DbMvcOkulEntities db = new DbMvcOkulEntities();
         public ActionResult Index()
         {
-            var kulupler = db.TBL_KULUP.ToList();
+            var kulupler = db.TBL_KULUP.Where(x=>x.KLPDURUM==true).ToList();
             return View(kulupler);
         }
 
@@ -27,6 +27,15 @@ namespace OBIS_MVC.Controllers
         public ActionResult KulupEkle(TBL_KULUP p)
         {
             db.TBL_KULUP.Add(p);
+            p.KLPDURUM = true;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult KulupSil(int id)
+        {
+            var deger = db.TBL_KULUP.Find(id);
+            deger.KLPDURUM = false;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

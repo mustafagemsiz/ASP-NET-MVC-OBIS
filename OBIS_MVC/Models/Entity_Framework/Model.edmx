@@ -4,13 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DbMvcOkulModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DbMvcOkulModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TBL_DERS">
           <Key>
             <PropertyRef Name="DERSID" />
           </Key>
           <Property Name="DERSID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DERSAD" Type="varchar" MaxLength="30" />
+          <Property Name="DERSDURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_KULUP">
           <Key>
@@ -19,6 +20,7 @@
           <Property Name="KULUPID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KLPAD" Type="varchar" MaxLength="30" />
           <Property Name="KLPKONTENJAN" Type="smallint" />
+          <Property Name="KLPDURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_NOT">
           <Key>
@@ -44,6 +46,7 @@
           <Property Name="OGRFOTOGRAF" Type="varchar" MaxLength="200" />
           <Property Name="OGRCINSIYET" Type="varchar" MaxLength="5" />
           <Property Name="OGRKULUP" Type="tinyint" />
+          <Property Name="OGRDURUM" Type="bit" />
         </EntityType>
         <Association Name="FK_TBL_NOT_TBL_DERS">
           <End Role="TBL_DERS" Type="Self.TBL_DERS" Multiplicity="0..1" />
@@ -99,8 +102,7 @@
             <End Role="TBL_OGRENCI" EntitySet="TBL_OGRENCI" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbMvcOkulModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -111,6 +113,7 @@
           <Property Name="DERSID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DERSAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TBL_NOT" Relationship="Self.FK_TBL_NOT_TBL_DERS" FromRole="TBL_DERS" ToRole="TBL_NOT" />
+          <Property Name="DERSDURUM" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBL_KULUP">
           <Key>
@@ -120,6 +123,7 @@
           <Property Name="KLPAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="KLPKONTENJAN" Type="Int16" />
           <NavigationProperty Name="TBL_OGRENCI" Relationship="Self.FK_TBL_OGRENCI_TBL_KULUP" FromRole="TBL_KULUP" ToRole="TBL_OGRENCI" />
+          <Property Name="KLPDURUM" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBL_NOT">
           <Key>
@@ -149,6 +153,7 @@
           <Property Name="OGRKULUP" Type="Byte" />
           <NavigationProperty Name="TBL_KULUP" Relationship="Self.FK_TBL_OGRENCI_TBL_KULUP" FromRole="TBL_OGRENCI" ToRole="TBL_KULUP" />
           <NavigationProperty Name="TBL_NOT" Relationship="Self.FK_TBL_NOT_TBL_OGRENCI" FromRole="TBL_OGRENCI" ToRole="TBL_NOT" />
+          <Property Name="OGRDURUM" Type="Boolean" />
         </EntityType>
         <Association Name="FK_TBL_NOT_TBL_DERS">
           <End Role="TBL_DERS" Type="Self.TBL_DERS" Multiplicity="0..1" />
@@ -213,6 +218,7 @@
           <EntitySetMapping Name="TBL_DERS">
             <EntityTypeMapping TypeName="DbMvcOkulModel.TBL_DERS">
               <MappingFragment StoreEntitySet="TBL_DERS">
+                <ScalarProperty Name="DERSDURUM" ColumnName="DERSDURUM" />
                 <ScalarProperty Name="DERSID" ColumnName="DERSID" />
                 <ScalarProperty Name="DERSAD" ColumnName="DERSAD" />
               </MappingFragment>
@@ -221,6 +227,7 @@
           <EntitySetMapping Name="TBL_KULUP">
             <EntityTypeMapping TypeName="DbMvcOkulModel.TBL_KULUP">
               <MappingFragment StoreEntitySet="TBL_KULUP">
+                <ScalarProperty Name="KLPDURUM" ColumnName="KLPDURUM" />
                 <ScalarProperty Name="KULUPID" ColumnName="KULUPID" />
                 <ScalarProperty Name="KLPAD" ColumnName="KLPAD" />
                 <ScalarProperty Name="KLPKONTENJAN" ColumnName="KLPKONTENJAN" />
@@ -245,6 +252,7 @@
           <EntitySetMapping Name="TBL_OGRENCI">
             <EntityTypeMapping TypeName="DbMvcOkulModel.TBL_OGRENCI">
               <MappingFragment StoreEntitySet="TBL_OGRENCI">
+                <ScalarProperty Name="OGRDURUM" ColumnName="OGRDURUM" />
                 <ScalarProperty Name="OGRENCIID" ColumnName="OGRENCIID" />
                 <ScalarProperty Name="OGRAD" ColumnName="OGRAD" />
                 <ScalarProperty Name="OGRSOYAD" ColumnName="OGRSOYAD" />

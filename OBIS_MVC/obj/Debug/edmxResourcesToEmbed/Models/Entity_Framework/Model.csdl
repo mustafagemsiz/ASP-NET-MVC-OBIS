@@ -7,6 +7,7 @@
     <Property Name="DERSID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DERSAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="TBL_NOT" Relationship="Self.FK_TBL_NOT_TBL_DERS" FromRole="TBL_DERS" ToRole="TBL_NOT" />
+    <Property Name="DERSDURUM" Type="Boolean" />
   </EntityType>
   <EntityType Name="TBL_KULUP">
     <Key>
@@ -16,6 +17,7 @@
     <Property Name="KLPAD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="KLPKONTENJAN" Type="Int16" />
     <NavigationProperty Name="TBL_OGRENCI" Relationship="Self.FK_TBL_OGRENCI_TBL_KULUP" FromRole="TBL_KULUP" ToRole="TBL_OGRENCI" />
+    <Property Name="KLPDURUM" Type="Boolean" />
   </EntityType>
   <EntityType Name="TBL_NOT">
     <Key>
@@ -45,6 +47,7 @@
     <Property Name="OGRKULUP" Type="Byte" />
     <NavigationProperty Name="TBL_KULUP" Relationship="Self.FK_TBL_OGRENCI_TBL_KULUP" FromRole="TBL_OGRENCI" ToRole="TBL_KULUP" />
     <NavigationProperty Name="TBL_NOT" Relationship="Self.FK_TBL_NOT_TBL_OGRENCI" FromRole="TBL_OGRENCI" ToRole="TBL_NOT" />
+    <Property Name="OGRDURUM" Type="Boolean" />
   </EntityType>
   <Association Name="FK_TBL_NOT_TBL_DERS">
     <End Role="TBL_DERS" Type="Self.TBL_DERS" Multiplicity="0..1" />

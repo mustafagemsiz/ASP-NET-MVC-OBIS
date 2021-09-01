@@ -26,6 +26,7 @@ namespace OBIS_MVC.Models.Entity_Framework
         public string OGRFOTOGRAF { get; set; }
         public string OGRCINSIYET { get; set; }
         public Nullable<byte> OGRKULUP { get; set; }
+        public Nullable<bool> OGRDURUM { get; set; }
     
         public virtual TBL_KULUP TBL_KULUP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

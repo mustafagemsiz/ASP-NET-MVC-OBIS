@@ -4,6 +4,7 @@
     <EntitySetMapping Name="TBL_DERS">
       <EntityTypeMapping TypeName="DbMvcOkulModel.TBL_DERS">
         <MappingFragment StoreEntitySet="TBL_DERS">
+          <ScalarProperty Name="DERSDURUM" ColumnName="DERSDURUM" />
           <ScalarProperty Name="DERSID" ColumnName="DERSID" />
           <ScalarProperty Name="DERSAD" ColumnName="DERSAD" />
         </MappingFragment>
@@ -12,6 +13,7 @@
     <EntitySetMapping Name="TBL_KULUP">
       <EntityTypeMapping TypeName="DbMvcOkulModel.TBL_KULUP">
         <MappingFragment StoreEntitySet="TBL_KULUP">
+          <ScalarProperty Name="KLPDURUM" ColumnName="KLPDURUM" />
           <ScalarProperty Name="KULUPID" ColumnName="KULUPID" />
           <ScalarProperty Name="KLPAD" ColumnName="KLPAD" />
           <ScalarProperty Name="KLPKONTENJAN" ColumnName="KLPKONTENJAN" />
@@ -36,6 +38,7 @@
     <EntitySetMapping Name="TBL_OGRENCI">
       <EntityTypeMapping TypeName="DbMvcOkulModel.TBL_OGRENCI">
         <MappingFragment StoreEntitySet="TBL_OGRENCI">
+          <ScalarProperty Name="OGRDURUM" ColumnName="OGRDURUM" />
           <ScalarProperty Name="OGRENCIID" ColumnName="OGRENCIID" />
           <ScalarProperty Name="OGRAD" ColumnName="OGRAD" />
           <ScalarProperty Name="OGRSOYAD" ColumnName="OGRSOYAD" />
