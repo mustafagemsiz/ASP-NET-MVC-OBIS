@@ -1,0 +1,20 @@
+﻿@model OBIS_MVC.Models.Entity_Framework.TBL_DERS
+@{
+    ViewBag.Title = "DersGuncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center; margin-top:15px">Ders Güncelle</h2>
+<hr />
+@using (Html.BeginForm("DersGuncelle", "Index", FormMethod.Post))
+{
+    <div class="form-group">
+        <label style="font-weight:bold">Ders Ad</label>
+        @Html.TextBoxFor(m => m.DERSAD, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.DERSID)
+    <div style="margin-top:15px">
+        <button class="btn btn-success">Kaydet</button>
+    </div>
+}
+

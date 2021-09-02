@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using OBIS_MVC.Models;
 namespace OBIS_MVC.Controllers
 {
     public class NotController : Controller
@@ -37,6 +37,14 @@ namespace OBIS_MVC.Controllers
             return View();
         }
 
+
+        [HttpGet]
+        public ActionResult NotGuncelle(int id)
+        {
+            var deger = db.TBL_NOT.Find(id);
+            return View("NotGuncelle", deger);
+        }
+
         [HttpPost]
         public ActionResult NotEkle(TBL_NOT p ,int SINAV1 = 0, int SINAV2 = 0, int SINAV3 = 0, int PROJE = 0)
         {
@@ -51,9 +59,37 @@ namespace OBIS_MVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult NotHesapla(int SINAV1 = 0, int SINAV2 = 0, int SINAV3 = 0, int PROJE = 0)
+
+        public ActionResult NotGuncelle(TBL_NOT p, int SINAV1, int SINAV2, int SINAV3, int PROJE, Islem model)
         {
+            if (model.islem == "Hesapla")
+            {
+                double ortalama = (SINAV1 + SINAV2 + SINAV3 + PROJE) / 4;
+                ViewBag.ort = ortalama;
+            }
+            if (model.islem == "NotGuncelle")
+            {
+                var deger = db.TBL_NOT.Find(p.NOTID);
+                deger.SINAV1 = p.SINAV1;
+                deger.SINAV2 = p.SINAV2;
+                deger.SINAV3 = p.SINAV3;
+                deger.PROJE = p.PROJE;
+                deger.ORTALAMA = p.ORTALAMA;
+                if (deger.ORTALAMA>49)
+                {
+                    deger.DURUM = true;
+                }
+                else
+                {
+                    deger.DURUM = false;
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index", "Not");
+            }
             return View();
         }
+
+
+
     }
 }

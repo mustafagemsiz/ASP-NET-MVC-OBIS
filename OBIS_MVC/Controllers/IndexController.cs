@@ -39,5 +39,22 @@ namespace OBIS_MVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult DersGuncelle(int id)
+        {
+            var deger = db.TBL_DERS.Find(id);
+            return View("DersGuncelle",deger);
+        }
+
+        [HttpPost]
+        public ActionResult DersGuncelle(TBL_DERS p)
+        {
+            var deger = db.TBL_DERS.Find(p.DERSID);
+            deger.DERSAD = p.DERSAD;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }

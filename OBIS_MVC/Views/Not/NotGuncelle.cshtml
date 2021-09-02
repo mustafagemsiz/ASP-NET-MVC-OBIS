@@ -1,0 +1,47 @@
+﻿@model OBIS_MVC.Models.Entity_Framework.TBL_NOT
+
+@{
+    ViewBag.Title = "NotGuncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center; margin-top:15px">Not Güncelle</h2>
+<hr />
+@using (Html.BeginForm("NotGuncelle", "NOT", FormMethod.Post))
+{
+    <div class="form-group">
+        <label style="font-weight:bold">Öğrenci Ad Soyad</label>
+        @Html.TextBoxFor(m => m.OGRID, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label style="font-weight:bold">Sınav 1</label>
+        @Html.TextBoxFor(m => m.SINAV1, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label style="font-weight:bold">Sınav 2</label>
+        @Html.TextBoxFor(m => m.SINAV2, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label style="font-weight:bold">Sınav 3</label>
+        @Html.TextBoxFor(m => m.SINAV3, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label style="font-weight:bold">Proje</label>
+        @Html.TextBoxFor(m => m.PROJE, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label style="font-weight:bold">Ortalama</label>
+        @Html.TextBoxFor(m => m.ORTALAMA, new { @Value=ViewBag.ort ,@class = "form-control"})
+    </div>
+    <div class="form-group">
+        <label style="font-weight:bold">Durum</label>
+        @Html.TextBoxFor(m => m.DURUM, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.NOTID)
+    <div style="margin-top:15px">
+        <button type="submit" name="islem" value="Hesapla" class="btn btn-info">Ortalama Hesapla</button>
+
+        <button type="submit" name="islem" value="NotGuncelle" class="btn btn-success">Kaydet</button>
+    </div>
+}
+

@@ -162,6 +162,7 @@
     <Compile Include="Models\Entity_Framework\TBL_OGRENCI.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Islem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -251,10 +252,13 @@
     <Content Include="Views\Not\Index.cshtml" />
     <Content Include="Views\Ogrenci\OgrenciEkle.cshtml" />
     <Content Include="Views\Not\NotEkle.cshtml" />
+    <Content Include="Views\Kulup\KulupGuncelle.cshtml" />
+    <Content Include="Views\Index\DersGuncelle.cshtml" />
+    <Content Include="Views\Ogrenci\OgrenciGuncelle.cshtml" />
+    <Content Include="Views\Not\NotGuncelle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Hesapla\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -48,5 +48,25 @@ namespace OBIS_MVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult OgrenciGuncelle(int id)
+        {
+            var deger = db.TBL_OGRENCI.Find(id);
+            return View("OgrenciGuncelle",deger);
+        }
+
+        [HttpPost]
+        public ActionResult OgrenciGuncelle(TBL_OGRENCI p)
+        {
+            var deger = db.TBL_OGRENCI.Find(p.OGRENCIID);
+            deger.OGRAD = p.OGRAD;
+            deger.OGRSOYAD = p.OGRSOYAD;
+            deger.OGRFOTOGRAF = p.OGRFOTOGRAF;
+            deger.OGRCINSIYET = p.OGRCINSIYET;
+            deger.OGRKULUP = p.OGRKULUP;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Ogrenci");
+        }
     }
 }

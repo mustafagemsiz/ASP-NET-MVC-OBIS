@@ -39,5 +39,22 @@ namespace OBIS_MVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult KulupGuncelle(int id)
+        {
+            var deger = db.TBL_KULUP.Find(id);
+
+            return View("KulupGuncelle",deger);
+        }
+
+        [HttpPost]
+        public ActionResult KulupGuncelle(TBL_KULUP p)
+        {
+            var deger = db.TBL_KULUP.Find(p.KULUPID);
+            deger.KLPAD = p.KLPAD;
+            db.SaveChanges();
+            return RedirectToAction("Index","KULUP");
+        }
     }
 }

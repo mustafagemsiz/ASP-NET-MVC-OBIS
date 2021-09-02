@@ -157,3 +157,4 @@ C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\obj\Debug\OBIS_MVC.csp
 C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\obj\Debug\OBIS_MVC.csproj.CopyComplete
 C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\obj\Debug\OBIS_MVC.dll
 C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\obj\Debug\OBIS_MVC.pdb
+C:\Users\birha\Documents\GitHub\ASP-NET-MVC-OBIS\OBIS_MVC\obj\Debug\OBIS_MVC.csprojAssemblyReference.cache
