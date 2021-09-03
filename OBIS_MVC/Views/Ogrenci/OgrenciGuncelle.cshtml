@@ -1,5 +1,6 @@
 ﻿@model OBIS_MVC.Models.Entity_Framework.TBL_OGRENCI
 
+
 @{
     ViewBag.Title = "OgrenciGuncelle";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,7 +8,7 @@
 
 <h2 style="text-align:center; margin-top:15px">Öğrenci Güncelle</h2>
 <hr />
-@using (Html.BeginForm("OgrenciGuncelle", "OGRENCI", FormMethod.Post))
+@using (Html.BeginForm("OgrenciGuncelle", "OGRENCI", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-group">
         <label style="font-weight:bold">Öğrenci Ad</label>
@@ -17,9 +18,14 @@
         <label style="font-weight:bold">Öğrenci Soyad</label>
         @Html.TextBoxFor(m => m.OGRSOYAD, new { @class = "form-control" })
     </div>
+ 
+    <div class="form-group">
+        <label style="font-weight:bold">Mevcut Resim</label> <br />
+            <img width="150" height="150" src="@Url.Content(Model.OGRFOTOGRAF)" />
+    </div>
     <div class="form-group">
         <label style="font-weight:bold">Öğrenci Fotoğraf</label>
-        @Html.TextBoxFor(m => m.OGRFOTOGRAF, new { @class = "form-control" })
+        <input class="form-control" type="file" name="OGRFOTOGRAF" accept=".jpg,.png,.jpeg" value="~/@Url.Content(Model.OGRFOTOGRAF)" required />
     </div>
     <div class="form-group">
         <label style="font-weight:bold">Öğrenci Kulüp</label>

@@ -6,7 +6,7 @@
 
 <h2 style="margin-top:15px; text-align:center;">Öğrenci Ekleme Sayfası</h2>
 <hr />
-<form action="/Ogrenci/OgrenciEkle/" method="post">
+<form action="/Ogrenci/OgrenciEkle/" method="post" enctype="multipart/form-data">
     <div class="modal-body">
         <label style="font-weight:bold; margin-bottom:5px">Öğrenci Ad</label>
         <input type="text" placeholder="Öğrenci Ad Giriniz." name="OGRAD" value="" class="form-control" required />
@@ -14,8 +14,10 @@
         <label style="font-weight:bold; margin-bottom:5px">Öğrenci Soyad</label>
         <input type="text" placeholder="Öğrenci Soyad Giriniz." name="OGRSOYAD" value="" class="form-control" required />
         <br />
-        <label style="font-weight:bold; margin-bottom:5px">Fotoğraf</label>
-        <input type="text" placeholder="Fotoğraf Bağlantısı Giriniz." name="OGRFOTOGRAF" value="" class="form-control" required />
+        <div class="form-group">
+            <label style="font-weight:bold">Öğrenci Fotoğraf</label>
+            <input class="form-control" type="file" name="OGRFOTOGRAF" accept=".jpg,.png,.jpeg" required />
+        </div>
         <br />
         <label style="font-weight:bold; margin-bottom:5px">Cinsiyet</label>
         <select class="form-control" id="StudentGender" name="OGRCINSIYET">
